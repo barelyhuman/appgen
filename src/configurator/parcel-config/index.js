@@ -209,6 +209,14 @@ ${stylus}
     },
     ESLint: lintingRules.eslint,
     Prettier: lintingRules.prettier,
+    'react-hot-toast':{
+      group: 'React',
+      dependencies: configItems => ['react-hot-toast'],
+    },
+    'React Router':{
+      group:'React',
+      dependencies: configItems => ['react-router'],
+    },
   };
   const featuresNoNulls = _.mapValues(features, item => {
     if (!item.babel) {

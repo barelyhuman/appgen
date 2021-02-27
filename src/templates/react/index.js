@@ -8,17 +8,20 @@ export const reactAppJs = configItems => {
   const isTailwindcss = _.includes(configItems, "Tailwind CSS");
   const isMaterialUI = _.includes(configItems, "Material-UI");
   const isBootstrap = _.includes(configItems, "Bootstrap");
+  const isReactHotToast = _.includes(configItems,"react-hot-toast");
+  const isReactRouter = _.includes(configItems,"React Router");
+
   return `
 import React from "react";
-${isHot ? `import { hot } from 'react-hot-loader/root';\n` : ""}${isMaterialUI ? `import Button from '@material-ui/core/Button';\n` : ""}${isBootstrap ? `import 'bootstrap';\nimport 'bootstrap/dist/css/bootstrap.min.css';\n` : ""}
+${isReactRouter?`import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";\n`:""}${isReactHotToast?`import toast, { Toaster } from 'react-hot-toast';\n`:""}${isHot ? `import { hot } from 'react-hot-loader/root';\n` : ""}${isMaterialUI ? `import Button from '@material-ui/core/Button';\n` : ""}${isBootstrap ? `import 'bootstrap';\nimport 'bootstrap/dist/css/bootstrap.min.css';\n` : ""}
 class App extends React.Component {
   render() {
     const { name } = this.props;
     return (
       <>
-        <h1${isTailwindcss ? tailwindcssClass : ""}>
-          Hello {name}
-        </h1>${isMaterialUI ? `\n        <Button variant="contained">this is a material UI button</Button>` : ""}${isBootstrap ? `\n        <button type="button" class="btn btn-primary">
+        ${isReactHotToast?`<Toaster position="top-center" reverseOrder={false}/>\n\t\t`:''}${isReactRouter?`<Router>\n\t\t<Route path="/">\n\t\t`:""}<h1${isTailwindcss ? tailwindcssClass : ""}>
+            Hello {name}
+        </h1>${isReactRouter?`\n\t\t</Route>\n\t\t</Router>`:""}${isMaterialUI ? `\n        <Button variant="contained">this is a material UI button</Button>` : ""}${isBootstrap ? `\n        <button type="button" class="btn btn-primary">
           This is a bootstrap button
         </button>` : ""}
       </>

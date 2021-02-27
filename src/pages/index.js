@@ -544,6 +544,8 @@ function Configurator(props) {
   if (!isReact) {
     delete showFeatures['React hot loader'];
     delete showFeatures['Material-UI'];
+    delete showFeatures['React Router'];
+    delete showFeatures['react-hot-toast'];
   }
 
   if (isTypescript) {
