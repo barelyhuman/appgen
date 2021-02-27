@@ -6,6 +6,12 @@ This tool is available both as CLI and as a online web tool.
 
 The web tool is running on [createapp.dev](https://createapp.dev)
 
+# THIS IS A FORK
+
+I like the tool but there were things I wanted as optional additions which are not a scope of the original project.
+You can find the original project [here](https://github.com/jakoblind/webpack-autoconf).
+
+This project doesn't mean to conflict with any licensing issues with the original author, all credits for the project belong to [jakoblind](https://github.com/jakoblind)
 
 ## Run web version locally
 
@@ -20,19 +26,20 @@ Point your browser to http://localhost:8000
 
 ## CLI
 
-Usage: webpack-autoconf new [project-name] [features]
+Usage: webpack-autoconf new [project-name][features]
 
 Where [features] can be any combination of:
-  - React
-  - Vue
-  - CSS
-  - Sass
-  - Less
-  - stylus
-  - SVG
-  - PNG
-  - moment
-  - lodash
+
+- React
+- Vue
+- CSS
+- Sass
+- Less
+- stylus
+- SVG
+- PNG
+- moment
+- lodash
 
 Example: webpack-autoconf new myProject React PNG
 
